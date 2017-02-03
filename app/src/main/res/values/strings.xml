@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">FLECT!</string>
+
+    <!--Rules screen strings-->
+    <string name="rules_p_1">Lloyd lives in a void.\n\nThe void has always been empty, but recently
+                             some strange things have been happening in his void...</string>
+    <string name="rules_p_2">THE WHATSAMAJIGS HAVE INVADED!</string>
+    <string name="rules_p_3">Llyod has suddenly found himself by strange objects, which he has
+                             dubbed the evil Whatsamajigs.\n\nIn order to get his home back,
+                             he will have to defeat every Whatsamajig he comes across!\n\n
+                             Help Lloyd defeat the Whatsamajigs by shooting him into them, and making
+                             them all disappear.</string>
+    <string name="colors_header">WHATSAMAJIG COLORS:</string>
+    <string name="colors_p">Each Whatsamajig has a special color to start. This color indicates how
+                            tough the Whatsamajig is, and how many times Lloyd will have to hit it
+                            to make it disappear from the void.</string>
+    <string name="green_p">These are the strongest Whatsamajigs, and take 3 hits.</string>
+    <string name="yellow_p">These Whatsamajigs are medium strength, and take 2 hits.</string>
+    <string name="red_p">These Whatsamajigs are puny! Just 1 hit and they disappear!</string>
+    <string name="green_header">GREEN:</string>
+    <string name="yellow_header">YELLOW:</string>
+    <string name="red_header">RED:</string>
+    <string name="ending_rules_para">Whatsamajigs come in many, many different shapes, sizes, and
+                                     types. Play with Lloyd and discover what each one does!</string>
+
+</resources>
