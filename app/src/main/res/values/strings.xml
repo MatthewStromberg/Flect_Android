@@ -22,5 +22,15 @@
     <string name="red_header">RED:</string>
     <string name="ending_rules_para">Whatsamajigs come in many, many different shapes, sizes, and
                                      types. Play with Lloyd and discover what each one does!</string>
+    <string name="l1string">LEVEL ONE</string>
+    <string name="l2string">LEVEL TWO</string>
+    <string name="l3string">LEVEL THREE</string>
+    <string name="l4string">LEVEL FOUR</string>
+    <string name="l5string">LEVEL FIVE</string>
+    <string name="l6string">LEVEL SIX</string>
+    <string name="l7string">LEVEL SEVEN</string>
+    <string name="l8string">LEVEL EIGHT</string>
+    <string name="l9string">LEVEL NINE</string>
+    <string name="l10string">LEVEL TEN</string>
 
 </resources>

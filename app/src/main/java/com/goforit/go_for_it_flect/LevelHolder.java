@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class LevelOne extends AppCompatActivity {
+public class LevelHolder extends AppCompatActivity {
 
 
     BallView mBallView = null;
@@ -36,9 +36,11 @@ public class LevelOne extends AppCompatActivity {
 
     ArrayList<WallView> walls = new ArrayList<>();
 
-    TextView l1_label;
+    TextView tvLabel;
 
-    Boolean ball_moving = true, game_over = false;
+    final String[] levelsList = {"LEVEL ONE","LEVEL TWO","LEVEL THREE","LEVEL FOUR","LEVEL FIVE","LEVEL SIX"};
+    int levelIndex = 0, currentLevel = 1;
+    Boolean ball_moving = true;
 
     //Speed slow downs for X and Y
     public static final double x_slow = 30.0;
@@ -46,6 +48,7 @@ public class LevelOne extends AppCompatActivity {
 
     // Stops the ball from moving more than once
     public static int num_moves = 1;
+
 
 
     @Override
@@ -59,14 +62,15 @@ public class LevelOne extends AppCompatActivity {
         getWindow().setFlags(0xFFFFFFFF, WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
+        tvLabel = (TextView)findViewById(R.id.level_label);
+        tvLabel.setText(levelsList[levelIndex]);
         //create pointer to main screen
         mainView = (RelativeLayout) findViewById(R.id.gameScreen);
 
         // Get the ids we need
-        l1_label = (TextView) findViewById(R.id.lv_one_label);
 
         // Hide level label after 2 seconds
-        l1_label.setVisibility(View.VISIBLE);
+        tvLabel.setVisibility(View.VISIBLE);
         Handler h = new Handler();
         Runnable r = new Runnable() {
             @Override
@@ -105,21 +109,16 @@ public class LevelOne extends AppCompatActivity {
         mainView.setOnTouchListener(new android.view.View.OnTouchListener() {
             public boolean onTouch(android.view.View v, android.view.MotionEvent e) {
 
-                // android.util.Log.d("action: ", "" + e.toString());
 
                 if ( !mBallMoving && ( e.getAction() == MotionEvent.ACTION_DOWN || e.getAction() == MotionEvent.ACTION_MOVE )
-                        && LevelOne.num_moves > 0 )
+                        && LevelHolder.num_moves > 0 )
                 {
                     //set ball position based on screen touch
                     mBallPos.x = e.getX();
                     mBallPos.y = e.getY();
 
 
-                    // Can't go above starting position and cant go below screen
-                    if (mBallPos.y < mBallView.origY)
-                    {
-//                        mBallPos.y = mBallView.origY;
-                    }
+
                     if ( mBallPos.y > (mScrHeight-20) )
                     {
                         mBallPos.y = (mScrHeight-20);
@@ -129,10 +128,6 @@ public class LevelOne extends AppCompatActivity {
                     sView.b_curX = mBallPos.x;
                     sView.b_curY = mBallPos.y;
 
-                    //mBallSpd.x = (float) ( Math.sqrt(Math.abs(mScrCtrX - mBallPos.x))/4 );
-                    //if(mBallPos.x > mScrCtrX) mBallSpd.x *= -1;
-                    //mBallSpd.y = (float) ( Math.sqrt(Math.abs(mScrCtrY - mBallPos.y))/4 );
-                    //if(mBallPos.y > mScrCtrY) mBallSpd.y *= -1;
                     android.util.Log.d("Is touching?", " Yes!" + mBallPos);
                     isTouching = true;
                     //timer event will redraw bal
@@ -152,8 +147,8 @@ public class LevelOne extends AppCompatActivity {
                     float chg_x = Math.abs(mBallPos.x - starting_x);
                     float chg_y = Math.abs(mBallPos.y - starting_y);
 
-                    float speed_x = (float) (chg_x / LevelOne.x_slow);
-                    float speed_y = (float) (chg_y / LevelOne.y_slow);
+                    float speed_x = (float) (chg_x / LevelHolder.x_slow);
+                    float speed_y = (float) (chg_y / LevelHolder.y_slow);
 
                     mBallSpd.x = speed_x;
                     mBallSpd.y = speed_y;
@@ -170,14 +165,6 @@ public class LevelOne extends AppCompatActivity {
 
             }});
 
-        //while ( true )
-        //{
-        //if ( !ball_moving )
-        //{
-        //mTmr.cancel();
-        //level_over();
-        // }
-        //}
 
 
     } //OnCreate
@@ -331,7 +318,7 @@ public class LevelOne extends AppCompatActivity {
     // function to hide over level label
     public void hide_level_label()
     {
-        l1_label.setVisibility(View.INVISIBLE);
+        tvLabel.setVisibility(View.INVISIBLE);
 
         // Add slingshot and ball to main screen
         mainView.addView(sView);
@@ -352,27 +339,22 @@ public class LevelOne extends AppCompatActivity {
 
         // First Wall
 //        WallView w1 = new WallView(this, 1, 0, 350, 120, 500);
-        WallView w1 = new WallView(this, 1, mScrCtrX-250,0,500,120, false);
-        walls.add(w1);
-
-        WallView w2 = new WallView(this, 2, mScrCtrX-250,240,500,120, false);
-        walls.add(w2);
-
-        WallView w3 = new WallView(this, 3, mScrCtrX-250,480,500,120, false);
-        walls.add(w3);
-
-        // Second Wall
-        WallView w4 = new WallView(this, 3, mScrCtrX-250, mScrHeight-600, 500, 120, false);
-        walls.add(w4);
-
-
-        WallView w5 = new WallView(this, 2, mScrCtrX-250, mScrHeight-360, 500, 120, false);
-        walls.add(w5);
-
-        WallView w6 = new WallView(this, 1, mScrCtrX-250, mScrHeight-120, 500, 120, false);
-        walls.add(w6);
-
-
+        if(currentLevel == 1) {
+            walls.clear();
+            walls.add(new WallView(this, 1, mScrCtrX - 250, 0, 500, 120, false));
+            walls.add(new WallView(this, 2, mScrCtrX - 250, 240, 500, 120, false));
+            walls.add(new WallView(this, 3, mScrCtrX - 250, 480, 500, 120, false));
+            walls.add(new WallView(this, 3, mScrCtrX - 250, mScrHeight - 600, 500, 120, false));
+            walls.add(new WallView(this, 2, mScrCtrX - 250, mScrHeight - 360, 500, 120, false));
+            walls.add(new WallView(this, 1, mScrCtrX - 250, mScrHeight - 120, 500, 120, false));
+        }
+        if(currentLevel == 2){
+            walls.clear();
+            walls.add(new WallView(this, 1, 0,250,120,500,false));
+            walls.add(new WallView(this, 1, 0,mScrHeight-620,120,500,false));
+            walls.add(new WallView(this, 1, 120,mScrHeight-120,500,120,false));
+            walls.add(new WallView(this, 1, mScrWidth-120, 250, 120, 1000, false));
+        }
         // Add all walls to view
         for ( int i = 0; i < walls.size(); ++i )
         {
@@ -388,7 +370,7 @@ public class LevelOne extends AppCompatActivity {
     }
 
     public void cheating(){
-        Intent i = new Intent(LevelOne.this, Cheater.class);
+        Intent i = new Intent(LevelHolder.this, Cheater.class);
         Bundle b = new Bundle();
             b.putInt("key", 0);
         i.putExtras(b);
@@ -412,7 +394,7 @@ public class LevelOne extends AppCompatActivity {
         }
 
 
-        Intent i = new Intent(LevelOne.this, lv1_won_lost.class);
+        Intent i = new Intent(LevelHolder.this, level_won_lost.class);
         Bundle b = new Bundle();
 
         if ( all_gone )

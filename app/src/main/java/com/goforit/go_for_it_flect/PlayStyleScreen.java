@@ -15,7 +15,7 @@ public class PlayStyleScreen extends AppCompatActivity {
 
     public void game_start_pressed(View v)
     {
-        startActivity(new Intent(PlayStyleScreen.this, LevelOne.class));
+        startActivity(new Intent(PlayStyleScreen.this, LevelHolder.class));
         finish();
     }
 

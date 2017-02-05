@@ -3,17 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LevelOne"
+    tools:context=".LevelHolder"
     android:id="@+id/gameScreen">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LEVEL ONE"
+        android:text="@string/l1string"
         android:fontFamily="sans-serif-medium"
         android:textStyle="bold"
         android:textSize="50sp"
-        android:id="@+id/lv_one_label"
+        android:id="@+id/level_label"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:visibility="invisible"

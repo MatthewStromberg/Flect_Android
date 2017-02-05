@@ -50,7 +50,7 @@ public class Cheater extends AppCompatActivity {
         replay_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Cheater.this, LevelOne.class));
+                startActivity(new Intent(Cheater.this, LevelHolder.class));
                 finish();
             }
         });

@@ -371,17 +371,11 @@ public class LevelTwo extends AppCompatActivity {
 
         // First Wall
 //        WallView w1 = new WallView(this, 1, 0, 350, 120, 500);
-        WallView w1 = new WallView(this, 1, 0,250,120,500,false);
-        walls.add(w1);
+        walls.add(new WallView(this, 1, 0,250,120,500,false));
+        walls.add(new WallView(this, 1, 0,mScrHeight-620,120,500,false));
+        walls.add(new WallView(this, 1, 120,mScrHeight-120,500,120,false));
+        walls.add(new WallView(this, 1, mScrWidth-120, 250, 120, 1000, false));
 
-        WallView w2 = new WallView(this, 1, 0,mScrHeight-620,120,500,false);
-        walls.add(w2);
-
-        WallView w3 = new WallView(this, 1, 120,mScrHeight-120,500,120,false);
-        walls.add(w3);
-
-        WallView w4 = new WallView(this, 1, mScrWidth-120, 250, 120, 1000, false);
-        walls.add(w4);
 /*
         WallView w4 = new WallView(this, 1, mScrCtrX-250,0,500,120,false);
         walls.add(w4);

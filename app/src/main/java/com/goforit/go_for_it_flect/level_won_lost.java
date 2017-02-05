@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class lv1_won_lost extends AppCompatActivity {
+public class level_won_lost extends AppCompatActivity {
 
     TextView win_lose_tv;
     Button replay_next;
@@ -16,7 +16,7 @@ public class lv1_won_lost extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lv1_won_lost);
+        setContentView(R.layout.activity_level_won_lost);
 
         // Get the win/lose label
         win_lose_tv = (TextView)findViewById(R.id.win_lose_status);
@@ -50,7 +50,7 @@ public class lv1_won_lost extends AppCompatActivity {
         replay_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(lv1_won_lost.this, LevelOne.class));
+                startActivity(new Intent(level_won_lost.this, LevelHolder.class));
                 finish();
             }
         });
@@ -63,7 +63,7 @@ public class lv1_won_lost extends AppCompatActivity {
         replay_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(lv1_won_lost.this, LevelTwo.class));
+                startActivity(new Intent(level_won_lost.this, LevelTwo.class));
                 finish();
             }
         });
@@ -71,7 +71,7 @@ public class lv1_won_lost extends AppCompatActivity {
 
     public void home_clicked(View v)
     {
-        startActivity(new Intent(lv1_won_lost.this, StartScreen.class));
+        startActivity(new Intent(level_won_lost.this, StartScreen.class));
         finish();
     }
 }

@@ -17,9 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".RulesScreen" />
-        <activity android:name=".LevelOne" />
+        <activity android:name=".LevelHolder" />
         <activity android:name=".PlayStyleScreen" />
-        <activity android:name=".lv1_won_lost" />
+        <activity android:name=".level_won_lost" />
         <activity android:name=".lv2_won_lost" />
         <activity android:name=".LevelEditorScreen" />
         <activity android:name=".Cheater" />

@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.goforit.go_for_it_flect.lv1_won_lost">
+    tools:context=".level_won_lost">
 
     <!--lvl 1 win/lose status-->
     <TextView

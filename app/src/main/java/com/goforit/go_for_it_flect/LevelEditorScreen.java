@@ -1,7 +1,6 @@
 package com.goforit.go_for_it_flect;
 
 import android.graphics.Point;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -175,7 +174,7 @@ public class LevelEditorScreen extends AppCompatActivity {
                 // android.util.Log.d("action: ", "" + e.toString());
 
                 if ((e.getAction() == MotionEvent.ACTION_DOWN || e.getAction() == MotionEvent.ACTION_MOVE)
-                        && LevelOne.num_moves > 0) {
+                        && LevelHolder.num_moves > 0) {
                     //set ball position based on screen touch
                     mBallPos.x = e.getX();
                     mBallPos.y = e.getY();
@@ -210,8 +209,8 @@ public class LevelEditorScreen extends AppCompatActivity {
                     float chg_x = Math.abs(mBallPos.x - starting_x);
                     float chg_y = Math.abs(mBallPos.y - starting_y);
 
-                    float speed_x = (float) (chg_x / LevelOne.x_slow);
-                    float speed_y = (float) (chg_y / LevelOne.y_slow);
+                    float speed_x = (float) (chg_x / LevelHolder.x_slow);
+                    float speed_y = (float) (chg_y / LevelHolder.y_slow);
 
                     mBallSpd.x = speed_x;
                     mBallSpd.y = speed_y;
